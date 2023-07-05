@@ -1,0 +1,16 @@
+name: App Distributor Reminder
+
+on:
+  schedule:
+    - cron: 35 15 * * *
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: rtCamp/action-slack-notify@v2.2.0
+        env:
+          SLACK_TITLE: '안드로이드 배포 담당자 리마인더'
+          SLACK_TEXT: 'Hello World'
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
