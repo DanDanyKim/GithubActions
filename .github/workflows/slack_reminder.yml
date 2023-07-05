@@ -2,7 +2,7 @@ name: App Distributor Reminder
 
 on:
   schedule:
-    - cron: "52 15 * * *"
+    - cron: "53 15 * * *"
 
 jobs:
   remind:
@@ -13,4 +13,4 @@ jobs:
         env:
           SLACK_TITLE: '안드로이드 배포 담당자 리마인더'
           SLACK_TEXT: 'Hello World'
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
