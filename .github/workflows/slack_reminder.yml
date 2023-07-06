@@ -10,5 +10,5 @@ jobs:
       - name: slack
         run: |
           chmod +x ./gradle/scripts/actions/slack.sh
-            ./gradle/scripts/actions/slack.sh
+          ./gradle/scripts/actions/slack.sh
         
