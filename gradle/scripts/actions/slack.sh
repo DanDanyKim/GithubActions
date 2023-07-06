@@ -1,4 +1,4 @@
-distributors=("김단희_개발" "김단희_개발")
+distributors=("@김단희_개발" "@김단희_개발")
 distributor_sequence=$(cat ./distributor_sequence)
 
 payload="{\"text\": \"이번 배포 담당자는 @${distributors[${distributor_sequence}]} 님 입니다\"}"
