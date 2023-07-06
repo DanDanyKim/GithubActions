@@ -14,5 +14,5 @@ jobs:
         env:
           SLACK_USERNAME: 안드로이드 배포 담당자 알리미
           SLACK_TITLE: 안드로이드 배포 담당자 알리미
-          SLACK_MESSAGE: 이번 배포 담당자는 @$(env.distributor_sequence) 님 입니다
+          SLACK_MESSAGE: 이번 배포 담당자는 @${{ env.distributor_sequence }} 님 입니다
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
