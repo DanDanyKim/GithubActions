@@ -2,7 +2,7 @@ name: App Distributor Reminder
 
 on:
   schedule:
-    - cron: "18 * * * *"
+    - cron: "36 * * * *"
 
 jobs:
   remind:
@@ -14,8 +14,8 @@ jobs:
           
       - name: run slack reminder
         run: |
-          chmod +x ./gradle/scripts/actions/slack.sh
-            ./gradle/scripts/actions/slack.sh ${{ secrets.SLACK_WEBHOOK_URL }}
+          chmod +x ./gradle/scripts/actions/distributor_reminder.sh
+            ./gradle/scripts/actions/distributor_reminder.sh ${{ secrets.SLACK_WEBHOOK_URL }}
       
       - name: commit changes
         run: |
