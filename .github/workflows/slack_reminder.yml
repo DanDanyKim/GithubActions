@@ -7,11 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: slack reminder
+      - name: run slack reminder
         run: |
           chmod +x ./gradle/scripts/actions/slack.sh
             ./gradle/scripts/actions/slack.sh ${{ secrets.SLACK_WEBHOOK_URL }}
-            
+      
+      - name: commit changes
+        run: |
           currentBranch=$(git branch --show-current)
           git pull origin ${currentBranch}
 
