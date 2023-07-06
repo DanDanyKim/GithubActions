@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Update Sequence
-        run: echo "DISTRIBUTOR_SEQUENCE=1" >> $GITHUB_ENV
+      - name: set distributor sequence
+        run: echo "distributor_sequence=/$(cat ./gradle/scripts/actions/distributorSequence)" >> $GITHUB_ENV
       - name: Slack
         uses: rtCamp/action-slack-notify@v2.2.0
         env:
           SLACK_USERNAME: 안드로이드 배포 담당자 알리미
           SLACK_TITLE: 안드로이드 배포 담당자 알리미
-          SLACK_MESSAGE: 이번 배포 담당자는 @${{ vars.DISTRIBUTORS_0 }} 님 입니다
+          SLACK_MESSAGE: 이번 배포 담당자는 @$(env.distributor_sequence) 님 입니다
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
