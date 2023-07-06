@@ -15,7 +15,7 @@ jobs:
       - name: run slack reminder
         run: |
           chmod +x ./gradle/scripts/actions/distributor_reminder.sh
-            ./gradle/scripts/actions/distributor_reminder.sh ${{ secrets.SLACK_WEBHOOK_URL }}
+            ./gradle/scripts/actions/distributor_reminder.sh ${{ vars.DISTRIBUTORS }} ${{ secrets.SLACK_WEBHOOK_URL }}
       
       - name: commit changes
         run: |
