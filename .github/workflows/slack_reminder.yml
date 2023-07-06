@@ -2,13 +2,6 @@ name: App Distributor Reminder
 
 on: push
 
-env:
-  DISTRIBUTORS: |
-    (
-      "김다슬", 
-      "김단희"
-    )
-
 jobs:
   remind:
     runs-on: ubuntu-latest
@@ -21,5 +14,5 @@ jobs:
         env:
           SLACK_USERNAME: 안드로이드 배포 담당자 알리미
           SLACK_TITLE: 안드로이드 배포 담당자 알리미
-          SLACK_MESSAGE: 이번 배포 담당자는 ${{ vars.DISTRIBUTOR_SEQUENCE }} 님 입니다
+          SLACK_MESSAGE: 이번 배포 담당자는 ${{ vars.DISTRIBUTORS[0] }} 님 입니다
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
