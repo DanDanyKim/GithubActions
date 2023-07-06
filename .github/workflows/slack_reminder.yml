@@ -21,3 +21,7 @@ jobs:
           SLACK_TITLE: 안드로이드 배포 담당자 알리미
           SLACK_MESSAGE: 이번 배포 담당자는 $DISTRIBUTOR_SEQUENCE 님 입니다
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Test
+        run: |
+          echo Distributors: $DISTRIBUTORS
+          echo DISTRIBUTOR_SEQUENCE: $DISTRIBUTOR_SEQUENCE
