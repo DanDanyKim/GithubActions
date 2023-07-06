@@ -22,3 +22,4 @@ jobs:
 
           git add -A
           git commit -m "update version"
+          git push
