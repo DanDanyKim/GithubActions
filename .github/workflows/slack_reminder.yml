@@ -17,8 +17,8 @@ jobs:
           currentBranch=$(git branch --show-current)
           git pull origin ${currentBranch}
 
-          git config --global user.name "actions"
-          git config --global user.email "actions@hwahae.kr"
+          git config --global user.name "DanDanyKim"
+          git config --global user.email "danhee.kim@birdview.kr"
 
           git add -A
           git commit -m "update distributor sequence"
