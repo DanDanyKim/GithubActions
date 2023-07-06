@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: set distributor sequence
         run: |
-          echo "distributor_sequence=/$(cat ./gradle/scripts/actions/distributor_sequence)" >> $GITHUB_ENV
-          echo "distributors=/$(cat ./gradle/scripts/actions/distributors)" >> $GITHUB_ENV
+          echo "distributor_sequence=$(cat ./gradle/scripts/actions/distributor_sequence)" >> $GITHUB_ENV
+          echo "distributors=$(cat ./gradle/scripts/actions/distributors)" >> $GITHUB_ENV
       - name: Slack
         uses: rtCamp/action-slack-notify@v2.2.0
         env:
