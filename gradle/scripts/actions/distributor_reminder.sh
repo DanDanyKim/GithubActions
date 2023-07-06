@@ -2,6 +2,9 @@ distributors=$1
 distributor_sequence=$(cat gradle/scripts/actions/distributor_sequence)
 today_distributor=${distributors[${distributor_sequence}]}
 
+echo $distributos
+echo $today_distributor
+
 payload="{\"text\": \"이번 배포 담당자는 @${today_distributor}_개발 님 입니다\"}"
 
 slack_reminder_webhook=$2
