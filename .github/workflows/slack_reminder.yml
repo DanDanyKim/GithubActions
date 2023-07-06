@@ -2,7 +2,7 @@ name: App Distributor Reminder
 
 on:
   schedule:
-    - cron: "36 * * * *"
+    - cron: "45 * * * *"
 
 jobs:
   remind:
