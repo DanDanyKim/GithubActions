@@ -14,8 +14,6 @@ jobs:
       
       - name: commit changes
         run: |
-          chmod +x ./gradlew
-  
           currentBranch=$(git branch --show-current)
           git pull origin ${currentBranch}
 
