@@ -16,9 +16,7 @@ jobs:
         run: |
           chmod +x ./gradle/scripts/actions/distributor_reminder.sh
             ./gradle/scripts/actions/distributor_reminder.sh ${{ secrets.SLACK_WEBHOOK_URL }}
-      
-      - name: commit changes
-        run: |
+
           git config --global user.name "DanDanyKim"
           git config --global user.email "danhee.kim@birdview.kr"
 
