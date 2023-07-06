@@ -1,8 +1,6 @@
 name: App Distributor Reminder
 
-on:
-  schedule:
-    - cron: "56 * * * *"
+on: push
 
 jobs:
   remind:
