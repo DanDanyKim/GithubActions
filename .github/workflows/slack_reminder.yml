@@ -12,4 +12,4 @@ jobs:
           chmod +x ./gradle/scripts/actions/slack.sh
             ./gradle/scripts/actions/slack.sh ${{ secrets.SLACK_WEBHOOK_URL }}
           
-          echo $(cat ./gradle/scripts/actions/distributor_sequence)
+          echo "$(cat ./gradle/scripts/actions/distributor_sequence)"
