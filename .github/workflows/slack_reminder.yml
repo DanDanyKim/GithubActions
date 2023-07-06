@@ -25,6 +25,7 @@ jobs:
           currentBranch=$(git branch --show-current)
           git pull origin ${currentBranch}
           
+          git fetch
           git add -A
           git commit -m "update distributor sequence"
           git push
