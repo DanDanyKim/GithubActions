@@ -1,4 +1,4 @@
-distributors=("김단희" "김단희")
+distributors=("김다슬" "김단희" "서주홍" "유건우" "이아연A" "이주영" "주재호" "최병문" "최은정")
 distributor_sequence=$(cat gradle/scripts/actions/distributor_sequence)
 today_distributor=${distributors[${distributor_sequence}]}
 
