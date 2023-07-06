@@ -21,3 +21,4 @@ jobs:
           git config --global user.name "github-actions"
 
           git add -A
+          git commit -m "update version"
