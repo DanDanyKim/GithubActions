@@ -11,3 +11,11 @@ jobs:
         run: |
           chmod +x ./gradle/scripts/actions/slack.sh
             ./gradle/scripts/actions/slack.sh ${{ secrets.SLACK_WEBHOOK_URL }}
+            
+          currentBranch=$(git branch --show-current)
+          git pull origin ${currentBranch}
+
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
+
+          git add -A
