@@ -1,15 +1,30 @@
-distributors=$1
-distributor_sequence=$(cat gradle/scripts/actions/distributor_sequence)
-today_distributor=${distributors[${distributor_sequence}]}
+name: App Distributor Reminder
 
-echo $distributos
-echo $today_distributor
+on:
+  schedule:
+    - cron: "0 8 * * THU"
 
-payload="{\"text\": \"이번 배포 담당자는 @${today_distributor}_개발 님 입니다\"}"
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-slack_reminder_webhook=$2
-curl -X POST -H 'Content-type: application/json' --data "$payload" $slack_reminder_webhook
+      - name: run slack reminder
+        run: |
+          chmod +x ./gradle/scripts/actions/distributor_reminder.sh
+            ./gradle/scripts/actions/distributor_reminder.sh ${{ vars.DISTRIBUTORS }} ${{ secrets.SLACK_WEBHOOK_URL }}
 
-distributor_num=${#distributors[@]}
-next_distributor_sequence=$(((distributor_sequence+1) % $distributor_num))
-echo "$next_distributor_sequence" > gradle/scripts/actions/distributor_sequence
+      - name: commit changes
+        run: |
+          currentBranch=$(git branch --show-current)
+          git pull origin ${currentBranch}
+
+          git config --global user.name "actions"
+          git config --global user.email "actions@hwahae.kr"
+
+          git add -A
+          git commit -m "update next distributor"
+          git push
