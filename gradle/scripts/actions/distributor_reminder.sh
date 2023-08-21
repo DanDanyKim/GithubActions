@@ -2,7 +2,7 @@ IFS="," read -ra distributors <<< "$1"
 distributor_sequence=$(cat gradle/scripts/actions/distributor_sequence)
 today_distributor=${distributors[${distributor_sequence}]}
 
-payload="{\"text\": \"이번 배포 담당자는 @${today_distributor}_개발 님 입니다\"}"
+payload="{\"text\": \"이번 배포 담당자는 @${today_distributor}_개발 님 입니다 <https://birdview.atlassian.net/wiki/spaces/HWAH/pages/3225550849|배포프로세스>\"}"
 
 slack_reminder_webhook=$2
 curl -X POST -H 'Content-type: application/json' --data "$payload" $slack_reminder_webhook
