@@ -1,0 +1,18 @@
+name: Work Schedule Alarmy
+
+on: push
+
+jobs:
+  alarmy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: run work schedule alarmy
+        run: |
+          npm install axios
+          chmod +x ./gradle/scripts/actions/work_schedule_alarmy.js
+           node ./gradle/scripts/work_schedule_alarmy.js ${{ vars.FLEX_EMAIL }} ${{ secrets.FLEX_PASSWORD }} 
+            ${{ vars.FLEX_ANDROID_DEPARTMENT_ID }} ${{ secrets.SLACK_WORK_SCHEDULE_WEBHOOK_URL }}
