@@ -198,13 +198,12 @@ function sendMessage(userInfo, slackUrl) {
     const divider = "=================================="
     const message = Object.values(userInfo)
         .map((user) => `${user.name}\t${user.workType}\t${user.from} ~ ${user.to}`).join("\n");
-    console.log(message);
-    // axios.post(
-    //     slackUrl,
-    //     {
-    //         text: `${header}\n${divider}\n${message}`
-    //     }
-    // );
+    axios.post(
+        slackUrl,
+        {
+            text: `${header}\n${divider}\n${message}`
+        }
+    );
 }
 
 const email = process.argv[2]
