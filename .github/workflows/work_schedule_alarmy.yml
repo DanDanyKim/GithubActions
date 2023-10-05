@@ -12,7 +12,7 @@ jobs:
 
       - name: run work schedule alarmy
         run: |
-          npm install axios
+          npm install
           chmod +x ./gradle/scripts/actions/work_schedule_alarmy.js
            node ./gradle/scripts/actions/work_schedule_alarmy.js ${{ vars.FLEX_EMAIL }} ${{ secrets.FLEX_PASSWORD }} 
             ${{ vars.FLEX_ANDROID_DEPARTMENT_ID }} ${{ secrets.SLACK_WORK_SCHEDULE_WEBHOOK_URL }}
