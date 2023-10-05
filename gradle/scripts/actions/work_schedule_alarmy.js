@@ -93,7 +93,7 @@ async function getToken(auth) {
 }
 
 async function getUsers(token, departmentId) {
-    const searchUsersURL = `https://flex.team/action/v2/search/customers/${departmentId}/search-users`;
+    const searchUsersURL = "https://flex.team/action/v2/search/customers/5eB8q7gzKp/search-users";
 
     return await axios
         .post(
