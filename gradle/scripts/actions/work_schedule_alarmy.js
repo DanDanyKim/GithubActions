@@ -10,7 +10,7 @@ const notifySchedule = async (email, password, departmentId, slackUrl) => {
 
     const userIdParam = users.map((user) => `userIdHashes=${user.id}`).join("&");
     const workSchedules = await getWorkSchedules(userIdParam, token);
-
+    
     const userInfo = buildUserInfo(users, workSchedules);
 
     sendMessage(userInfo, slackUrl);
@@ -139,9 +139,9 @@ function getTomorrowStart() {
 }
 
 async function getWorkSchedules(userIdParam, token) {
-    const workSchedulesURL = "https://flex.team/api/v2/time-tracking/users/work-schedules?" +
+    const workSchedulesURL = "https://flex.team/api/v2/time-tracking/users/work-schedules?" + 
         `${userIdParam}&timeStampFrom=${getTodayStart().valueOf()}&timeStampTo=${getTomorrowStart().valueOf()}`;
-
+    
     return await axios
         .get(
             workSchedulesURL,
