@@ -1,6 +1,7 @@
 const axios = require("axios");
 
 const notifySchedule = async (email, password, departmentId, slackUrl) => {
+    console.log(email, password, departmentId)
     if (isWeekend()) return;
 
     const auth = await getAuth(email, password);
@@ -92,7 +93,7 @@ async function getToken(auth) {
 }
 
 async function getUsers(token, departmentId) {
-    const searchUsersURL = "https://flex.team/action/v2/search/customers/5eB8q7gzKp/search-users";
+    const searchUsersURL = `https://flex.team/action/v2/search/customers/${departmentId}/search-users`;
 
     return await axios
         .post(
